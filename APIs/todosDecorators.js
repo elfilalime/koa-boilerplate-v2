@@ -4,24 +4,24 @@ let jsonMerger = require('json_merger')
 
 @route('/todosDecorator')
 export default class todosAPI {
-  constructor({ todoService }) {
-    this.todoService = todoService
+  constructor({ todoController }) {
+    this.todoController = todoController
   }
 
   @route('/')
   @GET()
   async listTodos(ctx) {
-    jsonMerger.merge(ctx, await this.todoService.all())
+    jsonMerger.merge(ctx, await this.todoController.all())
   }
 
   @route('/:id')
   @GET()
   async getTodo(ctx) {
-    jsonMerger.merge(ctx, await this.todoService.get(ctx.params.id))
+    jsonMerger.merge(ctx, await this.todoController.get(ctx.params.id))
   }
 
   @POST('/')
   async createTodo(ctx) {
-    jsonMerger.merge(ctx, await this.todoService.add(ctx.request.body))
+    jsonMerger.merge(ctx, await this.todoController.add(ctx.request.body))
   }
 }
