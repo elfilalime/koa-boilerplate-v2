@@ -1,7 +1,7 @@
 import { route, GET, POST } from 'awilix-koa' // or `awilix-router-core`
 let jsonMerger = require('json_merger')
 
-@route('/todosDecorator')
+@route('/todosAPI')
 export default class todosAPI {
   constructor({ todoController }) {
     this.todoController = todoController
