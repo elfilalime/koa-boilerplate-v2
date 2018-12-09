@@ -1,6 +1,3 @@
-import { Client } from '../Models/ClientModel.js'
-import { env } from '../lib/env.js'
-
 export async function authentification(ctx, next) {
     /**
      *

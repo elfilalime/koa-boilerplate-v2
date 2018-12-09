@@ -1,12 +1,11 @@
 import { NotFound, BadRequest } from 'fejl'
-
 import { Todo } from '../Models/todoModel'
 
 /**
- * Todo Service.
+ * Todo Controller.
  * Gets a todo store injected.
  */
-export default class TodoService {
+export default class TodoController {
   async all() {
     return {
       status: 200,

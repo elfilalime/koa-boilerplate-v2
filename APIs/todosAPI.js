@@ -1,5 +1,4 @@
 import { route, GET, POST } from 'awilix-koa' // or `awilix-router-core`
-import { authentification } from '../Middlewares/authentification.js'
 let jsonMerger = require('json_merger')
 
 @route('/todosDecorator')
@@ -20,7 +19,8 @@ export default class todosAPI {
     jsonMerger.merge(ctx, await this.todoController.get(ctx.params.id))
   }
 
-  @POST('/')
+  @route('/')
+  @POST()
   async createTodo(ctx) {
     jsonMerger.merge(ctx, await this.todoController.add(ctx.request.body))
   }
